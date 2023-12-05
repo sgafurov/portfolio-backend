@@ -38,12 +38,12 @@ router.post("/send", (req, res) => {
     return res.json({ status: "ERROR One or many fields may be empty" });
   }
 
-  // const isValidEmail = validator.isEmail(email);
+  const isValidEmail = validator.isEmail(email);
 
-  // if (!isValidEmail) {
-  //   console.log("Error sending email: Email is invalid");
-  //   return res.json({ status: "ERROR Email is invalid" });
-  // }
+  if (!isValidEmail) {
+    console.log("Error sending email: Email is invalid");
+    return res.json({ status: "ERROR Email is invalid" });
+  }
 
   const mail = {
     from: email,
